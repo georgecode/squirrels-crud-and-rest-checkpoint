@@ -3,7 +3,7 @@
 
 <ul>
   <%@user_channels.each do |channel|%>
-    <li><%= channel.name%></li>
+    <a href="../channels/<%=channel.id%>"><li><%= channel.name%></li></a>
   <%end%>
 </ul>
 
