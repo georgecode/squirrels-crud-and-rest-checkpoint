@@ -2,6 +2,7 @@
 <h1>Channels Available</h1>
 <ul>
 <%@channels.each do |channel|%>
-  <li><%=channel.name%></li>
+  <a href="channels/<%=channel.id%>"><li><%=channel.name%></li></a>
+  <p><%= channel.id%></p>
 <%end%>
 </ul>
