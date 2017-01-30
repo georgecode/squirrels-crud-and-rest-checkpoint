@@ -1,1 +1,7 @@
 <h1>Landing index page</h1>
+<h1>Channels Available</h1>
+<ul>
+<%@channels.each do |channel|%>
+  <li><%=channel.name%></li>
+<%end%>
+</ul>
