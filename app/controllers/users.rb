@@ -22,7 +22,14 @@ get '/users/:id' do
   @user = User.find(params[:id])
   if @user.id == session[:user_id]
 
+  @user_channels = @user.channels
+
+
+
   erb :'users/show'
+
+
+
   else
     # if you try to access a user thats not you
     p "nice try mr.robot"

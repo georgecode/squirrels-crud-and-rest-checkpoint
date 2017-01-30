@@ -1,2 +1,14 @@
 <h1>User show page</h1>
 <h2>Hello, <%= @user.first_name%></h2>
+
+<ul>
+  <%@user_channels.each do |channel|%>
+    <li><%= channel.name%></li>
+  <%end%>
+</ul>
+
+<%@total = 0%>
+<%@user_channels.each do |channel|%>
+  <%@total += channel.price_per_month%>
+<%end%>
+Total cost: $<%=@total%>
