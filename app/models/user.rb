@@ -1,3 +1,5 @@
+#onSite/week4/crud-and-rest-checkpoint-challenge
+
 class User < ActiveRecord::Base
   # Remember to create a migration!
   validates :email, :hashed_password, presence: true
