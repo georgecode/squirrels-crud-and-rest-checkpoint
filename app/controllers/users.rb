@@ -1,22 +1,31 @@
-
-get '/users' do
-end
-
-get'/users/new' do
+get '/users/new' do
   erb :'users/new'
 end
 
 post '/users' do
+  @user = User.new(first_name: params[:first_name],last_name: params[:last_name], email: params[:email],password: params[:password])
+  if @user.save
+    #start session
+    session[:user_id] = @user.id
+
+    redirect "/users/#{@user.id}"
+  else
+    @error = "Error: Missing feilds or email already exists"
+    erb :'/users/new'
+  end
 end
+
 
 get '/users/:id' do
-end
 
-get '/users/:id/edit' do
-end
+  #gets params from url
+  @user = User.find(params[:id])
+  if @user.id == session[:user_id]
 
-put '/users/:id' do
-end
+  erb :'users/show'
+  else
+    # if you try to access a user thats not you
+    p "nice try mr.robot"
+  end
 
-delete '/users/:id' do
 end
